@@ -5,7 +5,7 @@
                 <div class="logo">
                     <p></p>
                     <a href="index.html">
-                        <p><i class="bi bi-app-indicator"></i>SidutaTaniku</p>
+                        <span style="color: #25396f">SidutaTaniku</span>
                     </a>
                 </div>
                 <div class="toggler">
@@ -38,6 +38,12 @@
                         </li>
                         <li class="submenu-item ">
                             <a href="#">Data Produksi</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="#">Komoditas</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="#">Kecamatan</a>
                         </li>
                     </ul>
                 </li>
