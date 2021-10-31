@@ -18,5 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
+    return view('dashboard.dashboard', [
+        'title' => 'Dashboard',
+        'active' => 'dashboard'
+    ]);
 });
