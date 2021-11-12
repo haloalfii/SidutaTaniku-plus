@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KomoditasController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,11 +20,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('dashboard.dashboard', [
-        'title' => 'Dashboard',
-        'active' => 'dashboard'
-    ]);
-});
+// Route::get('/', function () {
+//     return view('dashboard.dashboard', [
+//         'title' => 'Dashboard',
+//         'active' => 'dashboard'
+//     ]);
+// });
 
+Route::resource('/', DashboardController::class);
 Route::resource('/komoditas', KomoditasController::class);
+Route::resource('/kecamatan', KecamatanController::class);

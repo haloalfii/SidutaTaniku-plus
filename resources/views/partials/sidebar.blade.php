@@ -43,7 +43,7 @@
                             <a href="/komoditas">Komoditas</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">Kecamatan</a>
+                            <a href="/kecamatan">Kecamatan</a>
                         </li>
                     </ul>
                 </li>

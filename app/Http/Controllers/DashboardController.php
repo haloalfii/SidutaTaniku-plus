@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kecamatan;
+use App\Models\Komoditas;
 use Illuminate\Http\Request;
 
-class KecamatanController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +15,13 @@ class KecamatanController extends Controller
      */
     public function index()
     {
-        return view('kecamatan.kecamatan', [
-            'title' => 'Kecamatan',
-            'table' => 'Tabel Kecamatan',
-            'active' => 'data',
-            'kecamatan' => Kecamatan::all()
+        $komoditas = Komoditas::all();
+        $kecamatan = Kecamatan::all();
+        return view('dashboard.dashboard', [
+            'title' => 'Dashboard',
+            'active' => 'dashboard',
+            'komoditas' => $komoditas->count(),
+            'kecamatan' => $kecamatan->count()
         ]);
     }
 
@@ -46,10 +49,10 @@ class KecamatanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Kecamatan  $kecamatan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Kecamatan $kecamatan)
+    public function show($id)
     {
         //
     }
@@ -57,10 +60,10 @@ class KecamatanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Kecamatan  $kecamatan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kecamatan $kecamatan)
+    public function edit($id)
     {
         //
     }
@@ -69,10 +72,10 @@ class KecamatanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Kecamatan  $kecamatan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kecamatan $kecamatan)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,10 +83,10 @@ class KecamatanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Kecamatan  $kecamatan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kecamatan $kecamatan)
+    public function destroy($id)
     {
         //
     }
