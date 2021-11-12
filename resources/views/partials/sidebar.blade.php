@@ -4,7 +4,7 @@
             <div class="d-flex justify-content-between">
                 <div class="logo">
                     <p></p>
-                    <a href="index.html">
+                    <a href="/">
                         <span style="color: #25396f">SidutaTaniku</span>
                     </a>
                 </div>
@@ -18,7 +18,7 @@
                 <li class="sidebar-title">Menu</li>
 
                 <li class="sidebar-item {{ $active === 'dashboard' ? 'active' : '' }}">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="/" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -40,7 +40,7 @@
                             <a href="#">Data Produksi</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">Komoditas</a>
+                            <a href="/komoditas">Komoditas</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="#">Kecamatan</a>
