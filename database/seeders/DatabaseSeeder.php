@@ -55,10 +55,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Komoditas::create([
-            'nama_komoditas' => 'Jagung'
+            'nama_komoditas' => 'Jagung',
+            'jenis_komoditas' => 'Tanaman Pangan'
         ]);
         Komoditas::create([
-            'nama_komoditas' => 'Padi'
+            'nama_komoditas' => 'Padi',
+            'jenis_komoditas' => 'Tanaman Pangan'
         ]);
     }
 }

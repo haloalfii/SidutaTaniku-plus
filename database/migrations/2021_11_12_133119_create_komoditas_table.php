@@ -16,6 +16,7 @@ class CreateKomoditasTable extends Migration
         Schema::create('komoditas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_komoditas');
+            $table->string('jenis_komoditas');
             $table->timestamps();
         });
     }

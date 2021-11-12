@@ -15,6 +15,9 @@ class KomoditasController extends Controller
     public function index()
     {
         return view('komoditas.komoditas', [
+            'title' => 'Komoditas',
+            'table' => 'Tabel Komoditas',
+            'active' => 'data',
             'komoditas' => Komoditas::all()
         ]);
     }
@@ -26,7 +29,10 @@ class KomoditasController extends Controller
      */
     public function create()
     {
-        //
+        return view('komoditas.create-komoditas', [
+            'title' => 'Tambah Komoditas',
+            'active' => 'data'
+        ]);
     }
 
     /**
@@ -37,7 +43,10 @@ class KomoditasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->all();
+        Komoditas::create($validatedData);
+
+        return redirect('/komoditas')->with('success', 'Data Komoditas sudah ditambah');
     }
 
     /**
@@ -57,9 +66,14 @@ class KomoditasController extends Controller
      * @param  \App\Models\Komoditas  $komoditas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Komoditas $komoditas)
+    public function edit($id)
     {
-        //
+        $komoditas = Komoditas::findOrFail($id);
+        return view('komoditas.edit-komoditas', [
+            'title' => 'Edit Komoditas',
+            'active' => 'data',
+            'komoditas' => $komoditas
+        ]);
     }
 
     /**
@@ -69,9 +83,14 @@ class KomoditasController extends Controller
      * @param  \App\Models\Komoditas  $komoditas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Komoditas $komoditas)
+    public function update(Request $request, Komoditas $komoditas, $id)
     {
-        //
+        $updateKomoditas = Komoditas::findOrFail($id);
+        $updateKomoditas->nama_komoditas = $request->get('nama_komoditas');
+        $updateKomoditas->jenis_komoditas = $request->get('jenis_komoditas');
+
+        $updateKomoditas->save();
+        return redirect('/komoditas')->with('update', 'Komoditas berhasil diupdate');
     }
 
     /**
@@ -80,8 +99,9 @@ class KomoditasController extends Controller
      * @param  \App\Models\Komoditas  $komoditas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Komoditas $komoditas)
+    public function destroy($id)
     {
-        //
+        $komoditas = Komoditas::destroy($id);
+        return redirect('/komoditas')->with('success', 'Data Komoditas berhasil dihapus!');
     }
 }
