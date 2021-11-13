@@ -16,6 +16,9 @@ class CreateKecamatansTable extends Migration
         Schema::create('kecamatans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kecamatan');
+            $table->integer('luas_kecamatan')->nullable();
+            $table->integer('jumlah_desa')->nullable();
+            $table->integer('jumlah_petani')->nullable();
             $table->timestamps();
         });
     }

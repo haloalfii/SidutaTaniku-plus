@@ -18,7 +18,7 @@ class KecamatanController extends Controller
             'title' => 'Kecamatan',
             'table' => 'Tabel Kecamatan',
             'active' => 'data',
-            'kecamatan' => Kecamatan::all()
+            'kecamatan' => Kecamatan::latest()->get()
         ]);
     }
 
@@ -29,7 +29,10 @@ class KecamatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('kecamatan.create-kecamatan', [
+            'title' => 'Tambah Kecamatan',
+            'active' => 'data'
+        ]);
     }
 
     /**
@@ -40,7 +43,10 @@ class KecamatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->all();
+        Kecamatan::create($validatedData);
+
+        return redirect('/kecamatan')->with('success', 'Data Kecamatan sudah ditambah');
     }
 
     /**
@@ -51,7 +57,11 @@ class KecamatanController extends Controller
      */
     public function show(Kecamatan $kecamatan)
     {
-        //
+        return view('kecamatan.show-kecamatan', [
+            'title' => 'Detail Kecamatan',
+            'active' => 'data',
+            'kecamatan' => $kecamatan
+        ]);
     }
 
     /**
@@ -62,7 +72,11 @@ class KecamatanController extends Controller
      */
     public function edit(Kecamatan $kecamatan)
     {
-        //
+        return view('kecamatan.edit-kecamatan', [
+            'title' => 'Edit Kecamatan',
+            'active' => 'data',
+            'kecamatan' => $kecamatan
+        ]);
     }
 
     /**
@@ -74,7 +88,16 @@ class KecamatanController extends Controller
      */
     public function update(Request $request, Kecamatan $kecamatan)
     {
-        //
+        $updateKecamatan = $request->validate([
+            'nama_kecamatan' => 'required',
+            'luas_kecamatan' => 'required',
+            'jumlah_desa' => 'required',
+            'jumlah_petani' => 'required',
+        ]);
+
+        Kecamatan::where('id', $kecamatan->id)->update($updateKecamatan);
+        // $updateTahun->save();
+        return redirect('/kecamatan')->with('update', 'Kecamatan berhasil diupdate');
     }
 
     /**
@@ -83,8 +106,9 @@ class KecamatanController extends Controller
      * @param  \App\Models\Kecamatan  $kecamatan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kecamatan $kecamatan)
+    public function destroy($id)
     {
-        //
+        $kecamatan = Kecamatan::destroy($id);
+        return redirect('/kecamatan')->with('success', 'Data Kecamatan berhasil dihapus!');
     }
 }

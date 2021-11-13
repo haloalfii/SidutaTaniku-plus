@@ -28,6 +28,9 @@
                         <tr>
                             <th>Nomor</th>
                             <th>Kecamatan</th>
+                            <th>Luas Kecamatan</th>
+                            <th>Jumlah Desa</th>
+                            <th>Jumlah Petani</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,9 +39,13 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->nama_kecamatan }}</td>
+                                <td>{{ number_format($item->luas_kecamatan) }} Hectare</td>
+                                <td>{{ $item->jumlah_desa }}</td>
+                                <td>{{ $item->jumlah_petani }}</td>
                                 <td>
-                                    <a href="/komoditas/{{ $item->id }}/edit" class="btn btn-warning">Edit</a>
-                                    <form action="/komoditas/{{ $item->id }}" method="POST" class="d-inline">
+                                    <a href="/kecamatan/{{ $item->id }}" class="btn btn-success">Detail</a>
+                                    <a href="/kecamatan/{{ $item->id }}/edit" class="btn btn-warning">Edit</a>
+                                    <form action="/kecamatan/{{ $item->id }}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-danger border-0"
@@ -49,7 +56,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <a href="/komoditas/create" class="btn btn-primary">Tambah Komoditas</a>
+                <a href="/kecamatan/create" class="btn btn-primary">Tambah Kecamatan</a>
             </div>
         </div>
     </section>
