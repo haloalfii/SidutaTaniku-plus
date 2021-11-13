@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Kecamatan;
 use App\Models\Komoditas;
+use App\Models\Tahun;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -61,6 +62,14 @@ class DatabaseSeeder extends Seeder
         Komoditas::create([
             'nama_komoditas' => 'Padi',
             'jenis_komoditas' => 'Tanaman Pangan'
+        ]);
+
+        Tahun::create([
+            'tahun' => '2020'
+        ]);
+
+        Tahun::create([
+            'tahun' => '2021'
         ]);
     }
 }

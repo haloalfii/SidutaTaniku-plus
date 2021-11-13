@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KomoditasController;
+use App\Http\Controllers\TahunController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,4 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/', DashboardController::class);
 Route::resource('/komoditas', KomoditasController::class);
 Route::resource('/kecamatan', KecamatanController::class);
+Route::resource('/tahun', TahunController::class);
